@@ -1,0 +1,23 @@
+@(title: String)(content: Html)(implicit flash: Flash)
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>@title</title>
+  <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned(" images/favicon.png")">
+
+  <!-- Libraries for React -->
+  <script src="https://unpkg.com/react@@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@@16/umd/react-dom.development.js" crossorigin></script>
+</head>
+
+<body>
+  @flash.get("error")
+  @content
+  @scalajs.html.scripts("play-client", routes.Assets.versioned(_).toString, name =>
+  getClass.getResource(s"/public/$name") != null)
+</body>
+
+</html>

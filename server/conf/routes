@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET        /                             controllers.Application.index
+GET        /productArgs                  controllers.Application.product(prodType, prodNum: Int)              
+
+# Routes for Task 8
+GET        /loadReact                           controllers.messageList.load
+POST       /validate                            controllers.messageList.validate
+GET        /getGeneralMessages                  controllers.messageList.getGeneralMessages
+GET        /getPersonalMessages                 controllers.messageList.getPersonalMessages
+POST       /createUser                          controllers.messageList.createUser
+POST       /addGeneralMessage                   controllers.messageList.addGeneralMessage
+POST       /addPersonalMessage                  controllers.messageList.addPersonalMessage
+POST       /deleteGeneralMessage                controllers.messageList.deleteGeneralMessage
+
+# Routes for Task 11
++ nocsrf
+POST       /sendDrawingData                     controllers.Task11Controller.receiveData
+GET        /canvasSocket                        controllers.WebSocket.socket
+
+# Prefix must match `play.assets.urlPrefix`
+GET        /assets/*file                 controllers.Assets.at(file)
+GET        /versionedAssets/*file        controllers.Assets.versioned(path="/public", file: Asset)

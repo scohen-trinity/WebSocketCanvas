@@ -1,0 +1,15 @@
+@()(implicit request: RequestHeader, flash: Flash)
+
+@main("Message List with React") {
+    <input type="hidden" id="csrfToken"             value="@helper.CSRF.getToken.value">
+    <input type="hidden" id="validateRoute"         value="@routes.messageList.validate">
+    <input type="hidden" id="generalMessagesRoute"  value="@routes.messageList.getGeneralMessages">
+    <input type="hidden" id="personalMessagesRoute" value="@routes.messageList.getPersonalMessages">
+    <input type="hidden" id="createRoute"           value="@routes.messageList.createUser">
+    <input type="hidden" id="addGeneralRoute"       value="@routes.messageList.addGeneralMessage">
+    <input type="hidden" id="addPersonalRoute"      value="@routes.messageList.addPersonalMessage">
+    <input type="hidden" id="deleteGeneralRoute"    value="@routes.messageList.deleteGeneralMessage">
+    
+    <div id="react-root"></div>
+    <script src="@routes.Assets.versioned("javascript/messageListMain.js")"></script>
+}
