@@ -1,13 +1,10 @@
-@()(implicit flash: Flash)
+@()(implicit request: RequestHeader, flash: Flash)
 
 @main("Play with Scala.js") {
-
-
+  <input type="hidden" id="ws-route" value="@routes.WebSocket.socket.absoluteURL()">
   <div>
     <h2>Canvas Fun</h2>
     <div id="easel"></div>
   </div>
-  
-
 <div id="root"></div>
 }
